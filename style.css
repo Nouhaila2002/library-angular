@@ -1,0 +1,141 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+  
+}
+.first-div {
+  grid-column: span 2;
+  background-color: #f0f0f0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.second-div {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  border-left: 4px solid #5A7BFA;
+}
+.third-div {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  border-left: 4px solid #5A7BFA;
+}
+h2 {
+  color: #5A7BFA;
+}
+.book-list {
+  list-style: none;
+  padding: 0;
+}
+.book-list li {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.book-list li:last-child {
+  border-bottom: none;
+}
+.book-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+ 
+}
+.book-author {
+  font-size: 14px;
+  color: #666;
+}
+.book-button {
+  background-color: #5A7BFA;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.first-div {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0.2, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 4px solid #5A7BFA;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 5px;
+}
+
+.user-age {
+  font-size: 18px;
+  color: #666666;
+  margin-bottom: 5px;
+}
+
+.user-books {
+  font-size: 16px;
+  color: #666666;
+  display: flex;
+  align-items: center;
+}
+
+.borrowed-books, .returned-books {
+  margin-right: 10px;
+}
+
+.book-counter {
+  padding: 8px 12px;
+  background-color: #ff6b6b;
+  color: #ffffff;
+  border-radius: 5px;
+}
