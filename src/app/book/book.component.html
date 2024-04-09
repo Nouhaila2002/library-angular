@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+  <div class="menu">
+    <div>
+      <a routerLink="/book">Home</a>
+      <a routerLink="/profile">Profile</a>
+    </div>
+    <div>
+      <a routerLink="/logout">Log out</a>
+    </div>
+  </div>
+
+  <div class="container">
+
+
+    <div class="search-container">
+      <input type="text" id="searchInput" (input)="onSearchChange($event)" [(ngModel)]="searchQuery"
+        placeholder="Search...">
+    </div>
+
+    <div class="table-container">
+      <table class="modern-table" id="dataTable">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publication Date</th>
+            <th>Available</th>
+            <th>Borrow</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of filteredBooks">
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.publicationDate}}</td>
+            <td>{{book.isAvailable}}</td>
+            <td><button class="action-button" *ngIf="book.isAvailable"
+                (click)="borrowBook(userData.payload.sub, book.id)">Borrow</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    window.onload = function () {
+      var table = document.getElementById('dataTable');
+      var searchInput = document.getElementById('searchInput');
+      searchInput.style.width = table.offsetWidth + 'px';
+    };
+  </script>
+
+</body>
+
+</html>

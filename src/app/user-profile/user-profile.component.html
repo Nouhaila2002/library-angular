@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centered Div Layout</title>
+</head>
+<body>
+
+    
+    
+    <div class="menu">
+        <div>
+          <a routerLink="/book">Home</a>
+          <a routerLink="/profile">Profile</a>
+        </div>
+        <div>
+          <a routerLink="/logout">Log out</a>
+        </div>
+      </div>
+
+  <div class="container">
+    <div class="first-div">
+      <div class="user-info">
+          <img src="assets/user-avatar.jpg" alt="User Avatar" class="user-avatar">
+          <div class="user-details">
+              <div class="user-name">{{userData.payload.username}}</div>
+              <div class="user-age">Email: {{userData.payload.email}}</div>
+              <div class="user-books">
+                  <span class="borrowed-books"></span>
+                  <span class="returned-books"></span>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="second-div">
+    <h2>Borrowed Books</h2>
+    <ul class="book-list">
+        <ng-container *ngFor="let book of books">
+            <li *ngIf="book.book.isAvailable !== null">
+                <div class="book-info">
+                    <div class="book-title">{{ book.book.title }}</div>
+                    <div class="book-author">Author: {{ book.book.author }}</div>
+                    <div class="dates">
+                        <div class="book-author">Borrow Date: {{ book.borrowDate }}</div>
+                        <div class="book-author">Return Date: {{ book.returnDate }}</div>
+                    </div>
+                   
+                </div>
+           
+                <button class="book-button" *ngIf="book.book.isAvailable"  (click)="borrowBook(userData.payload.sub, book.book.id)">Renew</button>
+            </li>
+        </ng-container>
+    </ul>
+</div>
+
+
+<div class="third-div">
+    <h2>Books List</h2>
+    <ul class="book-list">
+        <ng-container *ngFor="let book of books">
+            <li *ngIf="book.returnDate === null">
+                <div class="book-info">
+                    <div class="book-title">{{ book.book.title }}</div>
+                    <div class="book-author">{{ book.book.author }}</div>
+                </div>
+                <button class="book-button" (click)="returnBook(userData.payload.sub, book.id)">Return</button>
+            </li>
+        </ng-container>
+    </ul>
+</div>
+
+
+    
+</div>
+</body>
+</html>
